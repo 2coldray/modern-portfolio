@@ -8,48 +8,98 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #000000;
-    color: #FFFDF7;
+    background-color: #fefae0;
 }
 
-header {
-    width: 100%;
-    /* background-color: aqua; */
-    height: 70px;
-    display: flex;
-    align-items: center;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    /* background-color: orange; */
-    margin: 5rem;
-    align-items: center;
-}
-
-header .nav a {
-    color: #FFFDF7;
-    text-decoration: none;
-    padding: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.links {
-    display: flex;
-    padding: 0.5rem;
-    gap: 2rem
-}
-
-.links a {
-    text-decoration: none;
-}
-
-.links li {
+li {
     list-style: none;
 }
 
+a {
+    color: #283618;
+    text-decoration: none;
+}
 
+.navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
 
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-logo {
+    font-size: 2rem;
+}
+
+.nav-logo:hover {
+    color: #bc6c25;  
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #bc6c25;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar { 
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #283618;
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
 
